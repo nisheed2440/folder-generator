@@ -21,7 +21,7 @@ module.exports = generators.Base.extend({
 
   initializing: {
     // Initial Yo Generator Welcome Message when `yo dexareact` is run
-
+    
     initMessage: function () {
       this.log(yosay("Welcome to " + chalk.yellow("Folder Generator!")));
     },
@@ -36,7 +36,7 @@ module.exports = generators.Base.extend({
       return this.prompt(prompts).then((answers) => {
 
         //write config 'appName' to .yo-rc.json, we use this value as default app name in consecutive yo commands
-        this.config.set("name", answers.name);
+        //this.config.set("name", answers.name);
 
         //assignments
         this.name = answers.name;
@@ -47,7 +47,7 @@ module.exports = generators.Base.extend({
           return $1.toUpperCase().replace('-', '');
         });
 
-        this.folderPath = this.targetDir + '/' + this.name; 
+        this.folderPath = path.join(process.cwd(),this.targetDir,this.name); 
         //describe the destination path
 
       }).catch((err) => {
@@ -63,8 +63,6 @@ module.exports = generators.Base.extend({
 
     copy: function () {
       this.log(chalk.yellow('Scaffolding the application'));
-      this.log('dirname ',__dirname);
-      this.log('process ',process.cwd());
 
       this.fs.copyTpl(
           this.templatePath('skeleton/my-module/component.html'),
