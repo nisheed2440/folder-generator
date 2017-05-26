@@ -14,5 +14,5 @@ module.exports = [{
   type: 'input',
   name: 'targetDir',
   message: 'Enter folder directory',
-  default: 'C:/Users/adala4/Desktop'
+  default: './modules'
 }]

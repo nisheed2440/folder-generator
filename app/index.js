@@ -95,27 +95,27 @@ module.exports = generators.Base.extend({
           });  
       
       this.fs.copyTpl(
-          this.templatePath('skeleton/my-module/package.json'),
-          this.destinationPath(`${this.folderPath}/${this.name}.package.json`), {
+          this.templatePath('skeleton/my-module/my-module.json'),
+          this.destinationPath(`${this.folderPath}/${this.name}.json`), {
             name: this.name,
             _name: this._name
           });
 
       this.fs.copyTpl(
           this.templatePath('skeleton/my-module/README.md'),
-          this.destinationPath(`${this.folderPath}/${this.name}.README.md`), {
+          this.destinationPath(`${this.folderPath}/README.md`), {
             name: this.name,
             _name: this._name
           });
 
       this.fs.copyTpl(
           this.templatePath('skeleton/my-module/CHANGELOG.md'),
-          this.destinationPath(`${this.folderPath}/${this.name}.CHANGELOG.md`), {
+          this.destinationPath(`${this.folderPath}/CHANGELOG.md`), {
             name: this.name,
             _name: this._name
           });
 
-      //this.directory('docs','docs');
+      this.copy('skeleton/my-module/component.scss', `${this.folderPath}/${this.name}.component.scss`);
 
     }
 
