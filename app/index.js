@@ -90,6 +90,13 @@ module.exports = generators.Base.extend({
           this.destinationPath(`${this.folderPath}/${this.name}.module.ts`), {
             name: this.name,
             _name: this._name
+          }); 
+
+      this.fs.copyTpl(
+          this.templatePath('skeleton/my-module/my-module.ts'),
+          this.destinationPath(`${this.folderPath}/${this.name}.ts`), {
+            name: this.name,
+            _name: this._name
           });  
       
       this.fs.copyTpl(
