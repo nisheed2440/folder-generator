@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var child = require("child_process");
+var path = require("path");
+process.chdir(path.join(process.cwd()));
+
+var re = child.spawnSync("node_modules/.bin/folder", process.argv.slice(2), {
+  stdio: "inherit",
+  stdin: "inherit"
+});
+
+if (re.error) {
+  child.execSync("node_modules\\.bin\\folder " + process.argv.slice(2).join(' '), {
+    stdio: "inherit",
+    stdin: "inherit"
+  });
+}
