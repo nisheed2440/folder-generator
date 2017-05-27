@@ -7,7 +7,7 @@ import { <%=_name%>Component } from './<%=name%>.component';
     CommonModule
   ],
   declarations: [<%=_name%>Component],
-  exports:[AccordianComponent], 
-  entryComponents:[AccordianComponent]
+  exports:[<%=_name%>Component], 
+  entryComponents:[<%=_name%>Component]
 })
 export class <%=_name%>Module { }
